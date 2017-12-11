@@ -1,14 +1,41 @@
 <html>
-  <head>
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
-  </head>
-  <body>
-    <a-scene physics>
-      <a-sphere position="-1 4 -3" radius="1" color="red" dynamic-body></a-sphere>
-      <a-sphere position="0 6 -3" radius="0.5" color="yellow" dynamic-body></a-sphere>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4" static-body></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-  </body>
+
+<head>
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
+</head>
+
+<body>
+  <a-scene physics>
+    </a-sphere>
+    <!-- <a-sphere position="0 6 -3" radius="0.5" color="yellow" dynamic-body></a-sphere> -->
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4" static-body></a-plane>
+    <a-sky color="#ECECEC"></a-sky>
+
+    <script>
+      // var ball = document.querySelector('testBall');
+      dropBalls();
+
+      function dropBalls() {
+        for (var i = 0; i < 10; i++) {
+          var ball = document.createElement('a-sphere');
+          var posX = getRandomInt(-5, 5);
+          var posZ = getRandomInt(-5, 5);
+          var r = Math.random();
+          ball.setAttribute('position', (posX, 8, posZ));
+          ball.setAttribute('radius', r);
+          ball.setAttribute('color', 'red')
+        }
+      }
+
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+      }
+    </script>
+  </a-scene>
+
+</body>
+
 </html>
