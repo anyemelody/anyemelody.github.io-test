@@ -1,21 +1,38 @@
+var scene = document.querySelector('a-scene'); //grab the scene element
+var angle = Math.random(1);
+var posX, posY, posZ;
+var balls = [];
+// var ball = document.querySelector('testBall');
 
-  // var ball = document.querySelector('testBall');
-  dropBalls();
-
-  function dropBalls() {
-    for (var i = 0; i < 10; i++) {
-      var ball = document.createElement('a-sphere');
-      var posX = getRandomInt(-5, 5);
-      var posZ = getRandomInt(-5, 5);
-      var r = Math.random();
-      ball.setAttribute('position', {x:posX, y:0, z:posZ});
-      ball.setAttribute('radius', r);
-      ball.setAttribute('color', 'red')
-    }
+function setup() {
+  for (var i = 0; i < 3; i++) {
+    var ball = document.createElement('a-sphere');
+    ball.setAttribute('position', {
+      x: random(-5, 5),
+      y: random(-2,3),
+      z: random(-5, 5)
+    });
+    ball.setAttribute('radius', 0.4);
+    ball.setAttribute('color', 'red');
+    // ball.setAttribute('dynamic-body', true);
+    ball.setAttribute('material', {
+      color: 'white',
+      metalness: 0.5
+    });
+    balls[i] = ball;
+    print(ball[i]);
+    scene.appendChild(ball);
   }
+}
 
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+function draw() {
+  posY += sin(angle) * 0.1;
+  angle += 0.1;
+  for (var i = 0; i < balls.length; i++) {
+    balls[i].setAttribute('position', {
+      y: posY
+    });
+
+
   }
+};
