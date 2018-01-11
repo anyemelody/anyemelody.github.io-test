@@ -5,23 +5,20 @@ var balls = [];
 // var ball = document.querySelector('testBall');
 
 function setup() {
-  for (var i = 0; i < 1; i++) {
+  for (var i = 0; i < 10; i++) {
     ball = document.createElement('a-sphere');
     ball.setAttribute('position', {
-      x: random(0, 5),
-      y: 0,
+      x: random(-5, 5),
+      y: random(0, 5),
       z: random(-5, 5)
     });
     ball.setAttribute('radius', 0.4);
     ball.setAttribute('color', 'red');
-    // ball.setAttribute('dynamic-body', true);
+    ball.setAttribute('dynamic-body', true);
     ball.setAttribute('material', {
       color: 'white',
       metalness: 0.5
     });
-
-    // balls[i] = ball;
-    // print(ball[i]);
     scene.appendChild(ball);
   }
 }
