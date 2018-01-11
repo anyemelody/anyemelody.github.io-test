@@ -27,11 +27,12 @@ function setup() {
 }
 
 function draw() {
-  posY += sin(angle) * 0.1;
-  angle += 0.1;
-  for (var i = 0; i < 1; i++) {
-    ball.setAttribute('position', {
-      y: posY
-    });
-  }
+  // posY += sin(angle) * 0.1;
+  // angle += 0.1;
+  // for (var i = 0; i < 1; i++) {
+  //   ball.setAttribute('position', {
+  //     y: posY
+  //   });
+  //   print(posY);
+  // }
 };
