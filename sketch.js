@@ -14,22 +14,23 @@ function setup() {
     });
     ball.setAttribute('radius', 0.4);
     ball.setAttribute('color', 'red');
-    ball.setAttribute('dynamic-body', true);
+    // ball.setAttribute('dynamic-body', true);
     ball.setAttribute('material', {
       color: 'white',
       metalness: 0.5
     });
     scene.appendChild(ball);
+    balls.push(ball);
   }
 }
 
 function draw() {
-  // posY += sin(angle) * 0.1;
-  // angle += 0.1;
-  // for (var i = 0; i < 1; i++) {
-  //   ball.setAttribute('position', {
-  //     y: posY
-  //   });
-  //   print(posY);
-  // }
+  posY += sin(angle) * 0.1;
+  angle += 0.1;
+  for (var i = 0; i < 1; i++) {
+    var item = balls[i];
+    item.setAttribute('position', {
+      y: posY
+    });
+  }
 };
